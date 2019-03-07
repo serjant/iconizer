@@ -18,7 +18,7 @@ class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
 
     /// The name of the corresponding nib file.
     override var nibName: NSNib.Name {
-        return NSNib.Name("ImageSetView")
+        return "ImageSetView"
     }
 
     // MARK: Iconizer View Controller
@@ -27,7 +27,7 @@ class ImageSetViewController: NSViewController, IconizerViewControllerProtocol {
         guard let image = imageView.image else {
             throw IconizerViewControllerError.missingImage
         }
-        imageSet.generateScaledImagesFromImage(image)
+        try imageSet.generateScaledImagesFromImage(image)
     }
 
     func saveAssetCatalog(named name: String, toURL url: URL) throws {
